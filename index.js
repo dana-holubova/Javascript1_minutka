@@ -14,6 +14,16 @@ const cancelRing = () => {
 
 const time = Number(prompt("Napište, za kolik vteřin má minutka začít zvonit:"))
 
-const timerId = setTimeout(ring, time * 1000)    
+//const timerId = setTimeout(ring, time * 1000) 
 
-cancelRingBtn.addEventListener("click", cancelRing)
+let timerId
+
+if(isNaN(time)) {
+document.querySelector("#message").textContent = 'Nezadali jste číslo.'
+}
+
+else {
+//const timerId = setTimeout(ring, time * 1000)
+timerId = setTimeout(ring, time * 1000)
+cancelRingBtn.addEventListener("click", cancelRing)    
+}
